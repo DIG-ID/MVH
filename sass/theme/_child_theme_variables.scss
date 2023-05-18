@@ -1,0 +1,62 @@
+// Use this file to overwrite the basic Bootstrap variables and add your own variables
+// To overwrite a Bootstrap variable you don´t have to touch the Bootstrap folder.
+// Just copy a variable from /sass/bootstrap/_variables.scss, paste it here and edit the value.
+// As example you find one of the most important Bootstrap variable below: $brand-primary.
+// Thats the ugly Bootstrap blue used for all the links, primary buttons etc.
+// Just add your color code here, compile the theme.scss file to change this color everywhere
+
+
+//
+// Color system
+//
+
+$primary: #f0f0f0;
+$bg-primary: #ffffff;
+
+//
+// Header
+//
+
+$navbar-dark-color: rgba(17,17,17,1) !default;
+$navbar-light-color: #f0f0f0;
+
+// Fonts
+$font-family-sans-serif: "source-sans-pro",sans-serif;
+$headings-font-family: "merriweather",serif;
+$h2-font-size: 40px;
+
+$icomoon-font-family: "mvhico" !default;
+$icomoon-font-path: "fonts" !default;
+
+$icon-balcony: "\e900";
+$icon-bathtub: "\e901";
+$icon-bike: "\e902";
+$icon-breakfast: "\e903";
+$icon-dialphone: "\e904";
+$icon-dryer: "\e905";
+$icon-extrabed: "\e906";
+$icon-fitness: "\e907";
+$icon-flattv: "\e908";
+$icon-indoorpool: "\e909";
+$icon-nursery: "\e90a";
+$icon-queensizebed: "\e90b";
+$icon-radio: "\e90c";
+$icon-rest: "\e90d";
+$icon-safe: "\e90e";
+$icon-shower: "\e90f";
+$icon-ski: "\e910";
+$icon-wellness: "\e911";
+$icon-wifi: "\e912";
+
+//Typography
+$link-hover-decoration: none;
+// Typography color
+
+$link-color: #2c2b39;
+$link-color-light: #f0f0f0;
+
+// Typography sizes
+
+$footer-link-lg: 32px;
+$footer-link-md: 22px;
+$footer-link-sm: 16px;

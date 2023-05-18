@@ -1,0 +1,563 @@
+@import "theme/child_theme_variables";  // <--------- Add your variables into this file. Also add variables to overwrite Bootstrap variables here
+@import "assets/bootstrap4";// <--------- Loads Bootstrap3 or Bootstrap4. Change from /bootstrap3 to /bootstrap4 Watch out! just for testing in the moment!
+@import "../src/sass/understrap/understrap/understrap";// <-------- Loads the UnderStrap defaults. Just a few classes to incorporate BS in WP
+@import "../src/sass/understrap/theme/contact-form7";// <-------- Loads some basic styling for contact form 7 plugin
+
+//Optional files - If you don´t use the corresponding scripts/fonts comment em out
+@import "assets/font-awesome"; // <------- Font Awesome Icon font
+@import "assets/underscores"; // <------- Underscores media styles
+
+// Any additional imported files //
+@import "theme/child_theme";  // <--------- Add your styles into this file
+@import url("https://use.typekit.net/hly8kbl.css"); // <--------- Import fonts
+
+// Variables custom //
+$stdMargTop: 45px !important;
+$stdMargBot: 50px !important;
+@mixin position($position,$margins) {left: $position;right: $position;margin-left: $margins;margin-right: $margins;}
+@mixin std-margins-mob(){margin-left: 15px;margin-right: 15px}
+@mixin opacity-text(){opacity: 0.8;}
+
+$responsive-general: 768px;
+$responsive-tablet: 768px;
+$responsive-mobile: 767px;
+
+// Back to top button //
+
+#btt-btn {
+  display: inline-block;
+  background-color: #4089b7;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color .3s,
+    opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+#btt-btn::after {
+  content: "\f077";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+#btt-btn:hover {
+  cursor: pointer;
+  background-color: #333;
+}
+#btt-btn:active {
+  background-color: #555;
+}
+#btt-btn.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+// ICONS //
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:  url('../#{$icomoon-font-path}/#{$icomoon-font-family}.eot?1m29h1');
+  src:  url('../#{$icomoon-font-path}/#{$icomoon-font-family}.eot?1m29h1#iefix') format('embedded-opentype'),
+    url('../#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?1m29h1') format('truetype'),
+    url('../#{$icomoon-font-path}/#{$icomoon-font-family}.woff?1m29h1') format('woff'),
+    url('../#{$icomoon-font-path}/#{$icomoon-font-family}.svg?1m29h1##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  font-size: 37px;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-balcony {
+  &:before {
+    content: $icon-balcony;
+  }
+}
+.icon-bathtub {
+  &:before {
+    content: $icon-bathtub;
+  }
+}
+.icon-bike {
+  &:before {
+    content: $icon-bike;
+  }
+}
+.icon-breakfast {
+  &:before {
+    content: $icon-breakfast;
+  }
+}
+.icon-dialphone {
+  &:before {
+    content: $icon-dialphone;
+  }
+}
+.icon-dryer {
+  &:before {
+    content: $icon-dryer;
+  }
+}
+.icon-extrabed {
+  &:before {
+    content: $icon-extrabed;
+  }
+}
+.icon-fitness {
+  &:before {
+    content: $icon-fitness;
+  }
+}
+.icon-flattv {
+  &:before {
+    content: $icon-flattv;
+  }
+}
+.icon-indoorpool {
+  &:before {
+    content: $icon-indoorpool;
+  }
+}
+.icon-nursery {
+  &:before {
+    content: $icon-nursery;
+  }
+}
+.icon-queensizebed {
+  &:before {
+    content: $icon-queensizebed;
+  }
+}
+.icon-radio {
+  &:before {
+    content: $icon-radio;
+  }
+}
+.icon-rest {
+  &:before {
+    content: $icon-rest;
+  }
+}
+.icon-safe {
+  &:before {
+    content: $icon-safe;
+  }
+}
+.icon-shower {
+  &:before {
+    content: $icon-shower;
+  }
+}
+.icon-ski {
+  &:before {
+    content: $icon-ski;
+  }
+}
+.icon-wellness {
+  &:before {
+    content: $icon-wellness;
+  }
+}
+.icon-wifi {
+  &:before {
+    content: $icon-wifi;
+  }
+}
+div.wpcf7-mail-sent-ok{border: 2px solid #4089b7!important;}
+.wpml-ls-legacy-dropdown .wpml-ls-sub-menu{z-index: 9999;}
+// DESKTOP AND RESPONSIVE VARIABLES //
+@media (min-width: 768px) {
+  .fixed-top{position: relative;}
+  .mobile-version{display: none;}
+}
+@media (max-width: 767px) {
+  .desktop-version{display: none;}
+}
+@media (min-width: 1200px) {
+  .tabletlow-version{display: none;}
+}
+@media (max-width: 1200px) {
+  .tablethigh-version{display: none;}
+}
+@media (min-width:768px) and (max-width:1024px){
+  .navbar-expand-md .navbar-nav .nav-link{margin:0 5px!important;}
+}
+// DESKTOP HERE //
+@media (min-width: 1921px){
+#header-mvh.realheader .page-body-text{font-size:20px;}
+#header-mvh.top .page-body-text{font-size:20px;}
+}
+@media (min-width: $responsive-general) {
+// General //
+
+.pfixed{transition: 0.2s;}
+html {scroll-behavior: smooth;}
+body > .site > .wrapper{padding-top: 0px;padding-bottom: 0;}
+body > .site > .wrapper > #content > .row{background: #f7f7f7;}
+.navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus{color: #2c2b39;}
+.pfixed:hover {color: #4089b7!important;background: #ffffff!important;}
+.pfixed{border: 1px solid #4089b7;}
+.link-boxes-violet {min-height: 230px;background: #2c2b39;}
+.link-boxes-red {min-height: 230px;background: #dc2326;}
+.link-boxes-red, .link-boxes-blue, .link-boxes-violet {text-align: center;padding: 0;}
+.box-red {color: #ffffff;}
+.mvhplus-page .box-title {margin-bottom: 15px;margin-top: 50px;}
+.down-events {width: 40px;}
+.button_round_red{cursor: pointer;}
+.button_round_red:hover{color: #000000;background-color: #ffffff;}
+.gastro-page .button_round_red{margin-left: 15px;}
+// dots
+.flickity-page-dots{z-index: 99;}
+.flickity-page-dots .dot.is-selected {background: #4089b7!important;}
+.flickity-page-dots .dot {background: white!important;border: 2px solid #4089b7;}
+.flickity-prev-next-button .flickity-button-icon {left: 28%!important;top: 28%!important;width: 45%!important;height: 45%!important;}
+.rooms-page .flickity-prev-next-button.next:hover,.rooms-page .flickity-prev-next-button.previous:hover,.rooms-page .button_round_red:hover,.spa-page .button_round_red:hover,.mvhplus-page .button_round_red:hover{background: #ffffff!important;color:#4089b7!important;}
+.rooms-page .amenity-title{/*display: none;*/}
+.dig-angebot-dsk .flickity-prev-next-button:hover {background:#2c2b39!important;}
+.dig-angebot-dsk .flickity-prev-next-button:hover .flickity-button-icon{color:#ffffff!important;}
+
+
+// Booking bar //
+#booking-bar{width: 840px;margin:-50px auto 0px auto;background: #ffffff;filter: drop-shadow(0px 0px 10px #222);}
+#sb-container .sb,#sb-container-bar-en .sb,#sb-container-bar-fr .sb{padding: 0;}
+#sb-container .sb-custom-field-bg-color,#sb-container-bar-en .sb-custom-field-bg-color,#sb-container-bar-fr .sb-custom-field-bg-color{height: 100px;}
+.sb__form-field-label,.sb__form-field-icon,.sb__footer{display: none!important;}
+#sb-container_sb__form-field--checkin, #sb-container_sb__form-field--checkout,#sb-container-bar-en_sb__form-field--checkin, #sb-container-bar-fr_sb__form-field--checkout,#sb-container-bar-en_sb__form-field--checkin, #sb-container-bar-fr_sb__form-field--checkout{width: 48%!important;}
+#sb-container_sb__form-field--checkin,#sb-container-bar-en_sb__form-field--checkin,#sb-container-bar-fr_sb__form-field--checkin {margin-right: 0px!important;}
+.sb-screen-xs .sb__form-field-date-number{font-size: 48px!important;}
+.sb-screen-m .sb__guests-rooms {width: 25%!important;margin-top: 0!important;padding-left: 8px!important;padding-right: 8px!important;}
+#sb-container .sb input,#sb-container-bar-en .sb input,#sb-container-bar-fr .sb input {height: 100px;margin-top: 0!important;transition: none!important;border-radius: 0!important;color: #ffffff!important;font-size:18px!important;}
+.sb-screen-l .sb__btn--verify {font-size: 16px!important;width: 25%!important;height: 56px!important;padding: 16px 8px!important;}
+#sb-container .sb-custom-field-bg-color,#sb-container-bar-en .sb-custom-field-bg-color,#sb-container-bar-fr .sb-custom-field-bg-color {padding: 35px!important;}
+.sb-screen-xs .sb__form-field-month-year, .sb-screen-xs .sb__form-field-guests{font-size:14px!important;}
+.sb-screen-s .sb__form-field-weekday, .sb-screen-s .sb__form-field-rooms{font-size: 15px!important;line-height: 20px!important;}
+
+// Header //
+
+.navtopbar{background: #4089b7;height: 42px;}
+.navtopbar-inner-container{width: 100%;max-width: 1170px;  margin: 0 auto;padding: 0 15px;}
+.navtopbar-left-text a {float: left;font-family: "merriweather", serif;font-weight: 300;line-height: 25px;font-size: 14.5px;color: #FFFFFF;padding: 8px 0px;}
+.navtopbar-left-text a:hover {text-decoration: underline;}
+.navtopbar-contact-info{width: auto;float: left;padding: 7px 15px 8.78px;border-right: 1px solid rgba(200,200,200,.7)}
+.navtopbar-language-selector{width: auto;float: left;padding: 7px 15px 8.78px;;border-right: 1px solid rgba(200,200,200,.7)}
+.navtopbar-socials{width: auto;float: left;padding: 6.8px 0px 7.8px 15px;}
+.wpml-ls-legacy-dropdown {width: auto;max-width: 100%;}
+.wpml-ls-legacy-dropdown a {border: 0px;background-color: #4089b7;font-family: "merriweather", serif;font-size: 14.5px;font-weight: 400;color:#FFFFFF;}
+.navtopbar .fa {padding: 7px;font-size: 13px!important;width: 28.22px;margin-right: 15px;text-align: center;text-decoration: none;border-radius: 50%;background: #FFF;}
+.fa:hover {opacity: 0.7;}
+.navtopbar-right-text{float: right;font-family: "merriweather", serif;font-weight: 400;line-height: 26px;font-size: 14.5px;color: #FFFFFF;}
+#wrapper-navbar{width: 100%;background-color: #f0f0f0 !important;min-height: 89px;}
+.navbar{width: 100%;max-width: 1170px;margin: 0 auto;}
+.navbar-dark .navbar-brand {max-width: 168px;padding-top: 8px;padding-bottom: 5px;}
+.navbar-dark .navbar-nav .nav-link {border-bottom: 2px solid transparent;color:#2c2b39;font-size: 14.5px;font-weight: 700;  letter-spacing: 0.08em;text-transform: uppercase;    padding-right: 0;padding-left: 0;margin-left: 1rem;margin-right: 1rem;}
+.navbar-dark .navbar-nav .active > .nav-link,.navbar-dark .navbar-nav .nav-link:hover {color: #2c2b39;border-bottom: 2px solid #2c2b39;}
+#navbarNavDropdown > #main-menu{margin:auto;}
+
+// Home //
+#primary{display: none;}
+.entry-title{display: none;}
+.home .header-title{width: 725px;;color: #ffffff;position: absolute !important;top: 36vh;@include position(0,auto);font-weight: bold;font-size: 52px;}
+.home .title-logo{width: 260px;color: #ffffff;position: absolute !important;top: 36vh;@include position(0,auto);}
+.title-image::after{content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;background: #000000;}
+.home #home-title-section{width: 100%;margin-top: -50px;background: url(/wp-content/uploads/2019/10/mountain-bg.jpg) no-repeat;background-position: right bottom;}
+.home .home-title{font-weight: bold;margin-top: 160px;width:90%;max-width: 840px;margin-left: auto;margin-right: auto;}
+.home .header-subtitle{width:90%;max-width: 840px;margin:40px auto 0 auto;text-align: left;}
+.home .body-hometext{max-width: 840px;width:90%;margin:15px auto 50px auto!important;text-align: left;margin: 15px auto;padding-right: 250px;}
+.home .site > .wrapper > #content > .row > #home-title-section{background: #ffffff;}
+.home .dig-hoteldesk-block-slider .flickity-prev-next-button.previous{top: calc(76% + 28px);left:295px;background: #4089b7;}
+.home .dig-hoteldesk-block-slider .flickity-prev-next-button.next{top: calc(76% + 28px);left:365px;background: #4089b7;}
+.home .dig-hoteldesk-block-slider .flickity-prev-next-button.next,.home .dig-hoteldesk-block-slider .flickity-prev-next-button.previous{height: 56px;width: 56px;}
+.home .dig-hotel-block-name,.home .dig-hotel-block-subtitle{color:#f7f7f7;}
+.button_round_red {border-radius: 65px;background-color: #4089b7;position: relative;width: 200px;height: 55px;z-index: 522;color: #ffffff;border: 0;}
+.home .button-zum{position: absolute!important;top: 76%;left: 75px!important;}
+.section-title{text-align: center;font-weight: bold;}
+.home #primary{padding: 0;}
+.link-boxes .desk-box{width: 1115px;margin:0 auto;text-align: center;}
+.link-boxes .desk-box h2{color: #ffffff;padding: 40px;}
+.link-boxes .box-red{background: #4089b7;}
+.link-boxes .bg1{background: url(/wp-content/themes/understrap-child/assets/imgs/basic/home-box1.jpg) no-repeat;}
+.link-boxes .bg2{background: url(/wp-content/themes/understrap-child/assets/imgs/basic/home-box2.jpg) no-repeat;}
+
+.home .button-zum-invert{left: auto!important;right: calc(40% - 270px)!important;top: 76%;position: absolute!important;}
+.home .dig-hoteldesk-block-slider.inverted .flickity-prev-next-button.previous{right: calc(40% - 360px);left:auto;background: #4089b7;}
+.home .dig-hoteldesk-block-slider.inverted .flickity-prev-next-button.next{right: calc(40% - 430px);left:auto;background: #4089b7;}
+.home .about-desc{text-align: center;padding: 30px;}
+}
+
+// Spa Page //
+.spa-page #home-title-section{width: 100%;margin-top: -50px;background: #2c2b39;}
+.spa-page #home-title-section .home-title{margin-top: 160px;width: 840px;margin-left: auto;margin-right: auto;color:#ffffff;}
+.spa-page #home-title-section .header-subtitle{width: 840px;margin:40px auto 0 auto;text-align: left;color:#ffffff;}
+.spa-page #home-title-section .body-hometext{width: 840px;margin:15px auto 80px auto!important;text-align: left;margin: 15px auto;color:#ffffff;}
+.spa-page #spa-section-1,.spa-page #spa-section-2{width: 100%;}
+.spa-page #spa-section-1 .home-title,.spa-page #spa-section-2 .home-title{margin-top: 80px;width: 840px;margin-left: auto;margin-right: auto;}
+.spa-page #spa-section-1 .header-subtitle,.spa-page #spa-section-2 .header-subtitle{width: 840px;margin:40px auto 0 auto;text-align: left;}
+.spa-page #spa-section-1 .body-hometext,.spa-page #spa-section-2 .body-hometext{width: 840px;margin:15px auto 80px auto!important;text-align: left;margin: 15px auto;}
+.spa-page #spa-section-1  .button_round_red,.spa-page #spa-section-2  .button_round_red{margin:30px 0;}
+.spa-page .link-boxes .box-red{padding:60px;margin:16px 0;text-align: center;}
+.spa-page .link-boxes .box-red h2.box-title{margin:0;}
+.spa-page .flickity-page-dots{bottom: 25px;}
+
+
+// Footer //
+
+#wrapper-footer-full {background-color: #2c2b39;padding-bottom: 15px;}
+#wrapper-footer-full .container{padding: 50px 0;}
+@media (min-width: 768px) {
+#wrapper-footer-full .col-md-2 {flex: 0 0 19.3333333333%;max-width: 19.3333333333%;}
+#wrapper-footer-full .col-md-4 {max-width: 24.333333%;padding: 0;}
+}
+#wrapper-footer-full h1,#wrapper-footer-full h2,#wrapper-footer-full h3,#wrapper-footer-full h4,#wrapper-footer-full h5,#wrapper-footer-full h6 {color:#FFFFFF;}
+#wrapper-footer-full h5 {font-weight: 400!important;font-size: 20.83px;letter-spacing: 0.032em;text-transform: none!important;margin-top: 0!important;}
+#wrapper-footer-full p {color:#c8c8c8;font-weight: 300;font-size: 14.5px;}
+#wrapper-footer-full hr { border-top: 1px solid rgba(255, 255, 255, 0.15);}
+#wrapper-footer-full .container .col-md-4 {padding: 0}
+.logo-footer{margin-bottom:1.5rem;}
+#wrapper-footer-full  input:focus{outline: 1;}
+#wrapper-footer-full  input {text-align: center;border: 1px solid rgba(255,255,255,.30);padding: 10px 0;width: 80%;color: #919499;background: rgba(255,255,255,.0);font-size: $footer-link-sm;}
+.footer-copyright{max-width: 1170px;margin: 0 auto;padding: 0px 30px;color: #c8c8c8;}
+.footer-copyright a {color: #06bebd;}
+.footer-copyright ul{width: auto;float: right;margin-top: -7px;}
+.footer-copyright li{background: rgba(255,255,255,.15);width: 31px;border-radius: 50%;}
+.footer-copyright .fa {color: #c8c8c8;padding: 7.5px 0;}
+
+figure.wp-block-image{margin:0;}
+//RESPONSIVE HERE //
+@media(min-width:767px) and (max-width:1200px){
+
+.navbar-dark .navbar-nav .active > .nav-link, .navbar-dark .navbar-nav .nav-link:hover{border-bottom: none;}
+  body{font-size: 12px;}
+  // Header //
+  .navbar-nav {
+    padding: 192px 1rem 0;
+    margin-top: 92px!important;
+    background: url(/wp-content/uploads/2020/03/hn_menu.png) #f0f0f0;
+    background-size: cover;
+    min-height: 98vh;
+    background-position: center 0px;
+    background-repeat: no-repeat;
+    text-align: center;
+    font-size: 28px;
+    line-height: 0.9;
+    font-weight: 400;
+  }
+  .navbar-dark .navbar-nav .nav-link{font-size: 28px;}
+  .wpml-ls-legacy-dropdown a{color: #444;}
+  .navbar-dark .navbar-brand{max-width: none;width: 100%;margin:0;}
+  .navbar-nav {.nav-link {color: $navbar-light-color !important;@include hover-focus {color: $navbar-light-hover-color;}&.disabled {color: $navbar-light-disabled-color;}}}
+  .navbar {min-height: 80px;  padding: 0;transition: top 0.2s ease-in-out!important;}
+  .navbar-toggler{position: absolute;top: 20px;}
+  .navbar-brand{width: 100%; margin: 0;}
+  .navbar-brand img{margin: 0 auto;display: block;max-width: 175px;}
+  .navbar-inner-container{width: 100%;vertical-align: middle;position: absolute;top: 0;left:0;padding: 0.5rem 0.5rem 0.3rem;}
+  #close-menu svg{fill:#ffffff;}
+  // Booking Bar //
+  #footbar{position: fixed;background: #4089b7;bottom: 0px;height: 60px;width: 100%;z-index: 9999;}
+  #buchenfixed {position: absolute;background: #f0f0f0;width: 100px;height: 60px;float: left;padding: 7px 0px;text-align: center;}
+  #iconsfixed {width: 100%;padding-left: 100px;float: right;}
+  .pfixed{color: #ffffff;text-align: center;font-size: 22px;padding-top: 15px;}
+  #wpc-weather{padding: 0;margin:0;}
+  #wpc-weather.small .now .time_symbol svg{width: 50px;height: 50px;fill:#4089b7;}
+  #wpc-weather .now .time_symbol{float: left;margin-left: 10px; margin-top: -3px;}
+  #wpc-weather.small .now .time_temperature{font-size: 16px;margin-top: 5px;float: left;}
+  #wpc-weather .climacon_component-fill{fill:#f0f0f0!important;}
+}
+
+@media (max-width: $responsive-mobile) {
+// General //
+html {scroll-behavior: smooth;}
+body > .site > .wrapper{padding-top: 80px;padding-bottom: 0;}
+body > .site > .wrapper > #content > .row{background: #f0f0f0;}
+button:focus{outline: 0;}
+.acf-map {width: 100%;height: 400px;margin: 0px 0 20px 0;}
+.acf-map img {max-width: inherit !important;}
+
+.nav-up{top: -81px;}
+.nav-down{}
+#btt-btn{display: none;}
+.page-body-text,.event-text{margin:30px 15px!important;}
+
+// Header //
+.navbar-nav {.nav-link {color: $navbar-light-color !important;@include hover-focus {color: $navbar-light-hover-color;}&.disabled {color: $navbar-light-disabled-color;}}}
+.navbar {min-height: 80px;  padding: 0;transition: top 0.2s ease-in-out!important;}
+.navbar-toggler{position: absolute;top: 20px;}
+.navbar-brand{width: 100%; margin: 0;}
+.navbar-brand img{margin: 0 auto;display: block;max-width: 175px;}
+.navbar-inner-container{width: 100%;vertical-align: middle;position: absolute;top: 0;left:0;padding: 0.5rem 0.5rem 0.3rem;}
+.navbar-nav {padding: 92px 1rem 0;margin-top: 92px;
+  background: url(/wp-content/uploads/2020/03/hn_menu.png) #f0f0f0;
+  background-size: cover;min-height: 98vh;background-position: center 0px;background-repeat: no-repeat;
+  text-align: center;font-size: 28px;line-height: 0.9;font-weight: 400;}
+#close-menu svg{fill:#ffffff;}
+// Booking Bar //
+#footbar{position: fixed;background: #4089b7;bottom: 0px;height: 60px;width: 100%;z-index: 9999;}
+#buchenfixed {position: absolute;background: #f0f0f0;width: 100px;height: 60px;float: left;padding: 7px 0px;text-align: center;}
+#iconsfixed {width: 70%;float: right;}
+.pfixed{color: #ffffff;text-align: center;font-size: 22px;padding-top: 15px;}
+#wpc-weather{padding: 0;margin:0;}
+#wpc-weather.small .now .time_symbol svg{width: 50px;height: 50px;fill:#4089b7;}
+#wpc-weather .now .time_symbol{float: left;margin-left: 10px; margin-top: -3px;}
+#wpc-weather.small .now .time_temperature{font-size: 16px;margin-top: 5px;float: left;}
+#wpc-weather .climacon_component-fill{fill:#f0f0f0!important;}
+// Home //
+.row{margin-left: 0;margin-right: 0;}
+.home .home-title{padding-top: 0!important;}
+.home-title{@include position(0,auto);padding-top: $stdMargTop;margin-bottom: 0;padding-left: 15px;padding-bottom: 15px;width: 100%;font-weight: bold;}
+.site > .wrapper {padding-top: 0;}
+.site > .wrapper > .container-fluid{padding: 0;}
+.entry-title{display: none;}
+.header-title{color: white;position: relative!important;top: -40vh;@include position(0,auto);width: 310px;}
+.header-subtitle{opacity:0.65;margin-bottom: $stdMargBot;padding-left: 15px;}
+.body-hometext{padding-left: 15px;padding-right: 15px;opacity:0.65;display: inline-block;}
+.wp-image-25{margin-top: -16px;}
+.link-boxes{min-height: 200px;margin: 15px;background:#4089b7;}
+.box-red{color: #ffffff;}
+.box-title{font-size: 36px;text-align: center;margin-bottom: 0;margin-top: 55px;}
+.box-subtitle{text-align: center;margin-top: 10px;opacity: 0.7;}
+.home .wrapper > .container-fluid > .row{background: #ffffff!important;}
+.home .link-boxes{border:15px solid #f0f0f0;margin:0!important;}
+.home .site > .wrapper > #content > .row > #primary{background: #f0f0f0;}
+.home .wp-block-image{margin-bottom: 0;}
+.home .link-boxes.bg1{background: url(/wp-content/uploads/2019/11/sports-hm.jpg) no-repeat;background-size: cover;}
+.home .link-boxes.bg2{background: url(/wp-content/uploads/2019/11/gastro-hm.jpg) no-repeat;background-size: cover;}
+.home .link-boxes.bg3{background: url(/wp-content/uploads/2019/11/grachen-hm.jpg) no-repeat;background-size: cover;}
+// Home Sliders
+.dig-slider .flickity-page-dots{bottom: 0;top: 80vh;z-index: 99;max-height: 40px;}
+.dig-slider{height: calc(100vh - 50px);margin-bottom:25px;}
+.dig-slider ul{padding: 0;}
+.dig-slider .header-title{font-size: 32px;width: 300px;top: 40vh;}
+.dig-slider .wp-block-image{position: static;z-index: 5;}
+.dig-slider .dig-slider-cell{text-align: center;height: 100%;background-repeat: no-repeat!important;background-size: cover!important;}
+.dig-slider .dig-slider-cell > a{position: relative;top: 45vh;}
+.home .content-area {padding:0;}
+.button_round_red {border-radius: 65px;background-color: #4089b7;position: relative;width: 200px;height: 55px;z-index: 522;color: #ffffff;border: 0;}
+.dig-slider .slider-subtitle{color: #ffffff;position: relative;top: 43vh;width: 90%;@include position(0,auto)}
+// dots
+.flickity-page-dots{z-index: 99;}
+.flickity-page-dots .dot.is-selected {background: white;}
+.flickity-page-dots .dot {background: transparent;border: 2px solid white;}
+// Angebote Page //
+.angebot-page .content-area{background: #2c2b39;}
+.dig-angebot{margin-bottom: 80px;background: #ffffff;}
+.dig-angebot .body-hometext{margin-bottom: 10px;}
+.dig-angebot .slider-subtitle{text-align: center;font-weight: bold;}
+.angebot-page .ange-section{background: #2c2b39;}
+.ange-section .angebot-icon{display: block;margin: 0 auto;padding: 30px 0;width: 50px;}
+.ange-section h3.angebot-title{margin-bottom: 30px;}
+.dig-angebot-cell{padding-top: 20px;padding-bottom: 0px;}
+.angebot-page #content > .row{background: #2c2b39!important;}
+.angebot-page #angebot-content{width: 90%;margin:25px auto;background:#ffffff;}
+.angebot-page #angebot-content .body-hometext{padding-top: 25px;padding-bottom:10px;}
+.angebot-page #angebot-content .home-title{margin-top: 25px!important;padding-bottom: 15px;width: 94%;}
+.angebot-page .flickity-page-dots{bottom: -40px;}
+// Hotels Page
+.page-template-hotels-template .content-area {padding: 0;}
+.dig-hotel-block-slider{margin-bottom: 0px;padding-bottom: 20px;background: #2c2b39;}
+.dig-hotel-block-subtitle{font-size: 0.7rem;color:#b3bdc2!important;padding-bottom: 30px!important;}
+.hotels-page .button-link{display: block;text-align: center;margin-top: 0px;margin-bottom:0px;padding-top: 25px;padding-bottom: 25px;background: #2c2b39;}
+.dig-hotel-block-tabs{background: #ffffff;}
+.dig-hotel-block-name, .dig-hotel-block-subtitle{color:#ffffff;background: #2c2b39;padding-left: 15px;padding-bottom: 8px;margin-left: 0!important;margin-bottom: 0!important;opacity: 1;}
+.dig-hotel-block-tabs .nav.nav-tabs{background:#21202b;}
+.dig-hotel-block-tabs .nav-item{width: 33%;text-align: center;background:#21202b;border:0;}
+.dig-hotel-block-tabs .nav-item .nav-link{color: #ffffff;border:0;}
+.dig-hotel-block.hannigalp .nav-tabs .nav-link.active{background:#21202b;color:#8eb740;border:0;}
+.dig-hotel-block.desiree .nav-tabs .nav-link.active{background:#21202b;color:#4089b7;border:0;}
+.dig-hotel-block.gracherhof .nav-tabs .nav-link.active{background:#21202b;color:#9c40b7;border:0;}
+.hotels-page .flickity-page-dots{bottom: 40px;}
+.dig-hotel-block-tabs .tab-pane{padding: 15px;background: #f0f0f0;}
+.dig-hotel-block-map{border-top: 1px solid #ddd;}
+.hotels-page .hotel-locationname{float:left;font-size:20px;padding-top:15px;padding-left:15px;padding-bottom:10px;}
+.hotels-page .hotel-locationcenter{float:right;padding-top: 15px;padding-right:15px;padding-bottom:10px;}
+.hotels-page .hotel-locationcenter img{margin-right: 8px;width: 15px;}
+// Gastronomie Page //
+.gastro-page .content-area{background: #2c2b39;padding:0;}
+.gastro-page .body-hometext, .gastro-page .slider-subtitle{color: #ffffff;}
+.gastro-page .header-title{top: 0;font-size: 28px;width:92%;margin-top: 20px;}
+.gastro-page .button-link{display: block;text-align: center;}
+.dig-gastro-cell > img{max-height: 55vh;margin:0 auto;display: block;width: 100vw;}
+.gastro-page .slider-subtitle{text-align: center;margin-bottom: 20px;opacity: 1;font-size: 20px;}
+.gastro-page .dig-gastro{margin-bottom: 60px;}
+.dig-gastro-cell{width: 90%;counter-increment: dig-gastro-cell; margin-right: 10px;}
+.gastro-page .flickity-page-dots{bottom: -40px;}
+.gastro-page .site > .wrapper > #content > .row{background: #2c2b39;}
+// Grachen Page //
+.link-boxes-red, .link-boxes-blue,.link-boxes-violet{text-align: center;padding: 0;}
+.down-events{width: 40px;}
+.grachen-page .page-body-text, .grachen-page .page-subtitle{@include std-margins-mob;}
+.link-boxes-red{min-height: 180px;background:#dc2326;}
+.link-boxes-blue{min-height: 180px;background:#06bebd;}
+.link-boxes-violet{min-height: 180px;background:#2c2b39;}
+.event-title-mob{color:#ffffff;font-size: 30px;text-align: left;color: #ffffff;margin-top: -65px;@include std-margins-mob;}
+.grachen-page .col-md{padding-left: 0;padding-right: 0;}
+.event-text{display: inline-block;@include std-margins-mob;margin-top:15px!important;@include opacity-text;}
+.event-date{@include std-margins-mob;}
+.event-date,.event-dateend{color:#9da1a7;font-size: 14px;display: inline-block;top: -15px;position: relative;}
+.event-title-in{display: inline-block;width: 100%;}
+.grachen-page .page-body-text{margin-bottom: 40px;}
+.grachen-page .down-events{margin-top: 8px;}
+.season-icon{width: 25px;float: right;position: relative;margin-top: -70px;margin-right: 15px;margin-bottom: 45px;}
+.grachen-page .box-title{margin-top: 10px;}
+.grachen-aktitle{display: inline-block;text-align: left;width: 205px!important;padding-top: 21px;font-size: 34px;}
+.grachen-page .link-boxes-violet > .box-red{padding-top: 25px;}
+.grachen-page #events{background: #f0f0f0;}
+// SPA Page //
+.spa-page .container-fluid > .row{}
+.spa-page .home-title{color: #ffffff;width: 100%;font-size:34px;background: #2c2b39;}
+.spa-page .header-subtitle{color: #ffffff;background: #2c2b39;opacity:1;margin-top: 0;margin-bottom: 0!important;padding-top:0px;padding-bottom: 30px;width: 100%;}
+.spa-page .body-hometext{background: #f0f0f0;opacity: 1;padding-top: 30px;padding-bottom: 30px;}
+.spa-page .button-link{background: #2c2b39;padding-top: 30px;padding-bottom: 50px;width: 100%;text-align: center;margin-top: 0;margin-bottom: 0;}
+.button-link{margin:0 auto;margin-top:30px;margin-bottom: 50px;}
+#spaaround{background: #f0f0f0;}
+// MVH+ Page //
+.mvhplus-page .box-title{margin-bottom: 15px;margin-top: 50px;}
+.dine-elipse{float: left;margin:0 10px 20px 10px;width: 35px;}
+.pretitle{font-size:1.2rem;opacity: 0.8;float: left;margin-top: 5px;}
+.mvhplus-dine{border-top: 1px solid #ddd;padding-top:20px;padding-bottom: 20px;background: #f0f0f0;}
+.mvhplus-page .col-md.content-area{padding: 0;}
+.mvhplus-text{display: inline-block;opacity: 0.8;margin-left: 15px;margin-right: 15px;margin-bottom: 10px;}
+.mvhplus-date{margin-left: 15px;margin-right: 15px;}
+.mvhplus-page .availability{float: right;margin-right: 15px;margin-top: 5px;opacity:0.5;}
+.mvhplus-page .button-link{margin:0 auto;margin-top:15px;margin-bottom: 30px;display: block;text-align: center;}
+.mvhplus-page #page-wrapper{padding-bottom: 0;}
+// Uber Uns Page //
+.uberuns-page .event-title{width: 100%;}
+.uberuns-page .page-info{font-size: 24px;font-weight: bold;}
+.uberuns-page .box-title{margin-top: 75px;}
+.uberuns-page .page-body-text{margin-bottom: 30px;}
+// Footer //
+.footer-mobile{text-align:center;padding: 60px 15px 30px;background: url(/wp-content/themes/understrap-child/assets/imgs/footer/footer_bg.png) #f0f0f0;background-size: auto 100%;background-position: center 180px;background-repeat: no-repeat;}
+.footer-links-container{padding: 130px 0 0px;}
+.footer-link{color:$link-color-light;font-size: $footer-link-md;}
+.mobile-signup p{color: #919499;font-size: 22px;}
+.footer-links-container a:hover{color: #ffffff;}
+.mobile-signup{margin-top: 40px;}
+.mobile-signup input:focus{outline: 0;}
+.mobile-signup input {text-align: center;border: 0;padding: 10px 0;width: 80%;color: #919499;background: rgba(255,255,255,.06);font-size: $footer-link-md;}
+.mobile-signup input[type="submit"] {background: rgba(255,255,255,0);border: #919499 1px solid;border-radius: 53px;width: 80%;padding: 15px 0;font-size: $footer-link-md;color: #f0f0f0f0;}
+#wrapper-footer-full{padding: 30px 0 0;}
+#footer-full-content > .row{margin-bottom: 60px;}
+#footer-full-content,#wrapper-footer-full{padding: 0;}
+}
